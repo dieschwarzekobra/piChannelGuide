@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 html_doc = open("tvRage.html", "r")
 text = html_doc.read()
 firstShow = text.find('<SHOW>')
+firstTime = text.find('<TIME>')
 showText = text[firstShow:]
 
 ##Soup variables
@@ -15,8 +16,8 @@ shows = soup.find_all('show')
 ##Arrays
 updatedText = []
 carrots = []
-closingBrackets = []
-openingBrackets = []
+openingTags = []
+closingTags = []
 channel = []
 channelList = []
 channelNum = []
@@ -36,29 +37,43 @@ def findCarrots():
     carrots.append(i)
     i = showText.find("^", i+1)
 
-def findClosingBracket():
-  i = firstShow
+def findOpeningTag(tag):
+  if tag == "<SHOW>":
+    i = firstShow
+    while i>0:
+      openingTags.append(i + 6)
+      i = showText.find(tag,i+1)
+  elif tag == "<TIME>":
+    i = firstTime
+    while i>0:
+      openingTags.append(i + 6)
+      i = soup.find(tag,i+1)
+
+def findClosingTag(tag):
+  i = showText.find(tag,0)
   while i>0:
-    closingBrackets.append(i + 6)
-    i = showText.find("<SHOW>",i+1)
+    closingTags.append(i+1)
+    i = showText.find(tag,i+1)
 
-def findOpeningBracket():
-  i = showText.find("</SHOW>",0)
-  while i>0:
-    openingBrackets.append(i+1)
-    i = showText.find("</SHOW>",i+1)
-
-
+def countShows():
+  findOpeningTag("<TIME>")
+  timeCount = soup.find_all("time")
+  iOpeningTag = 0
+  for i in range(len(openingTags)-1): #show in shows:
+    s = shows[i]
+    if (len(s) + openingTags[i]) < openingTags[i+1]:
+      s['time'] = timeCount[i].contents
+      print s
 
 def extractChannel():
   iCarrot = 0
-  iClosingBracket = 0
+  iOpeningTag = 0
   for x in range(len(shows)-1):
-    channelStart = closingBrackets[iClosingBracket]
+    channelStart = openingTags[iOpeningTag]
     channelEnd = carrots[iCarrot]
     channel.append(showText[channelStart:channelEnd])
     iCarrot += 3
-    iClosingBracket += 1
+    iOpeningTag += 1
 
 def extractShowTitle():
   iCarrot = 0
@@ -69,15 +84,17 @@ def extractShowTitle():
     showListing.append(showText[showStart:showEnd])
     iCarrot += 3
 
+
+
 def extractUrl():
   iCarrot = 2
-  iOpeningBracket = 0
-  for x in range(len(openingBrackets)-1):
+  iClosingTag = 0
+  for x in range(len(closingTags)-1):
     urlStart = carrots[iCarrot] + 1
-    urlEnd = openingBrackets[iOpeningBracket] - 1
+    urlEnd = closingTags[iClosingTag] - 1
     url.append(showText[urlStart:urlEnd])
     iCarrot += 3
-    iOpeningBracket += 1
+    iClosingTag += 1
 
 def writeToCache(list):
   file = open('tvRage2.html', 'a')
@@ -101,7 +118,6 @@ def defineTimeAttributes():
   timeElement = soup.find_all("time")
   for showTime in timeElement:
     showTime['showTime'] = showTime.contents
-    print showTime
 
 def determineImportantChannels():
   usrInput = raw_input("Please list the channels you're interested in, following this format: ChannelNumber_ChannelName, with two spaces separating each channel. (i.e. 53_MTV  59_Animal Planet): ")
@@ -133,8 +149,8 @@ def printShowings():
 #Call functions / Run Program
 clearCache()
 findCarrots()
-findClosingBracket()
-findOpeningBracket()
+findOpeningTag("<SHOW>")
+findClosingTag("</SHOW>")
 extractChannel()
 extractShowTitle()
 extractUrl()
@@ -146,3 +162,4 @@ print "Channels that exist"
 compareChannels()
 printShowings()
 defineTimeAttributes()
+countShows()

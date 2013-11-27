@@ -23,6 +23,7 @@ channelNum = []
 showListing = []
 url = []
 customList = []
+time = []
 
 def clearCache():
   file = open('tvRage2.html','w')
@@ -46,6 +47,8 @@ def findOpeningBracket():
   while i>0:
     openingBrackets.append(i+1)
     i = showText.find("</SHOW>",i+1)
+
+
 
 def extractChannel():
   iCarrot = 0
@@ -94,6 +97,12 @@ def putRowsBackTogether():
   newText = writeToCache(rows)
   return newText
 
+def defineTimeAttributes():
+  timeElement = soup.find_all("time")
+  for showTime in timeElement:
+    showTime['showTime'] = showTime.contents
+    print showTime
+
 def determineImportantChannels():
   usrInput = raw_input("Please list the channels you're interested in, following this format: ChannelNumber_ChannelName, with two spaces separating each channel. (i.e. 53_MTV  59_Animal Planet): ")
   usrList = usrInput.split("  ")
@@ -119,6 +128,8 @@ def printShowings():
     rowsWithChannel = row.find_all("show", channel=chann)
     print rowsWithChannel
 
+
+
 #Call functions / Run Program
 clearCache()
 findCarrots()
@@ -134,3 +145,4 @@ parseChannelsAndChannelNumbers()
 print "Channels that exist"
 compareChannels()
 printShowings()
+defineTimeAttributes()

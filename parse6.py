@@ -112,12 +112,12 @@ def runProgram():
   def sortShows(interval):
 
     global showListingTime
-    showListingTime = int(showListingTime) + (interval)
+    showListingTime = showListingTime + interval
 
     #Set boundaries for span of time to print entries for
-    upperBoundary = "10:00 am" #int(showListingTime) + 100
-    midBoundary = "09:30 am" #int(showListingTime) + 30
-    lowerBoundary = "0900" #showListingTime
+    lowerBoundary = showListingTime
+    upperBoundary = lowerBoundary + 100
+    midBoundary = lowerBoundary + 30
 
     #Initialize lists for each boundary
     upperBoundaryList = []
@@ -126,16 +126,16 @@ def runProgram():
 
     #If show is at a given time, print the show
     for show in shows:
-      if show['time'] == lowerBoundary:
+      if int(show['time']) == int(lowerBoundary):
         lowerBoundaryList.append(show)
-      elif show['time'] == midBoundary:
+      elif int(show['time']) == midBoundary:
         midBoundaryList.append(show)
-      elif show['time'] == upperBoundary:
+      elif int(show['time']) == upperBoundary:
         upperBoundaryList.append(show)
 
     printShows(lowerBoundary, lowerBoundaryList)
-#    printShows(midBoundary, midBoundaryList)
-#    printShows(upperBoundary, upperBoundaryList)
+    printShows(midBoundary, midBoundaryList)
+    printShows(upperBoundary, upperBoundaryList)
 
   ###################################################
 
@@ -226,7 +226,7 @@ def runProgram():
   givenTime = getTime()
   global i
   global showListingTime
-  showListingTime = givenTime
+  showListingTime = int(givenTime) - 100
   text = html_doc.read()
   content = ''
   networks = []

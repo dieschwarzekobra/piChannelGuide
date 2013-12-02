@@ -160,21 +160,6 @@ def roundToNearestHalfHour(minutes):
 
 def runProgram():
   clearCache()
-  connectToTvRage()
-
-  ##Basic text variables
-  html_doc = open("tvRage.html", "r")
-  text = html_doc.read()
-  content = ''
-
-  ##Soup Variables
-  soup = BeautifulSoup(text)
-  shows = soup.find_all('show')
-  times = soup.find_all('time')
-  allTags = soup.find_all()
-
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-
   for show in shows:
     defineChannelAttribute(show)
     defineUrlAttribute(show)

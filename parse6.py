@@ -117,7 +117,10 @@ def runProgram():
     #Set boundaries for span of time to print entries for
     lowerBoundary = showListingTime
     upperBoundary = lowerBoundary + 100
-    midBoundary = lowerBoundary + 30
+    if str(lowerBoundary)[-2:] == "30":
+      midBoundary = lowerBoundary + 70
+    else:
+       midBoundary = lowerBoundary + 30
 
     #Initialize lists for each boundary
     upperBoundaryList = []
@@ -136,7 +139,7 @@ def runProgram():
     printShows(lowerBoundary, lowerBoundaryList)
     printShows(midBoundary, midBoundaryList)
     printShows(upperBoundary, upperBoundaryList)
-
+    print getTime(), lowerBoundary, midBoundary, upperBoundary
   ###################################################
 
   def printShows(Boundary, List):
@@ -156,7 +159,7 @@ def runProgram():
 
     #Get local time
     givenTime = time.strftime("%H%M", time.localtime())
-    minutes = roundToNearestHalfHour(givenTime[:2])
+    minutes = roundToNearestHalfHour(givenTime[2:])
     givenTime = str(givenTime[:2]) + str(minutes)
 
     return givenTime
@@ -195,7 +198,7 @@ def runProgram():
   #####################################################
 
   def roundToNearestHalfHour(minutes):
-    if int(minutes) > 30:
+    if int(minutes) >= 30:
       minutes = "30"
     else:
       minutes = "00"

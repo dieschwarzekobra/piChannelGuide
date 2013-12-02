@@ -224,16 +224,20 @@ def runProgram():
 
   ############VARIABLES#####################
 
-  ##Basic text variables
+  ##Basic variables and global variables
+  ###Basic variables
   html_doc = open("tvRage.xml", "r")
   givenTime = getTime()
-  global i
-  global showListingTime
-  showListingTime = int(givenTime) - 100
-  text = html_doc.read()
-  content = ''
   networks = []
   urls = []
+
+  ###Global variables
+  global i
+  global showListingTime
+
+  ###Derivative variables
+  showListingTime = int(givenTime) - 100
+  text = html_doc.read()
   
   ##Soup Variables
   soup = BeautifulSoup(text)
@@ -242,25 +246,16 @@ def runProgram():
   allTags = soup.find_all()
   allNetworks = soup.find_all('network')
   allUrls = soup.find_all('link')
-  #print soup
 
-#  for show in shows:
-#    defineChannelAttribute(show)
-    #defineUrlAttribute(show)
-    #defineShowTagContent(show)
   listNetworks()
   listUrls()
   for show in shows:
     defineChannelAttribute(show)
     defineUrlAttribute(show)
     assignShowtimes(show)
-#    calculateHours(show['time'])
     convertTimeToUniversal(show)
     i += 1
   compareChannels()
-#  assignShowtimes()
-#  convertTimeToUniversal()
-  #sortShows(0)
   paginate()
 
 ########################################################################

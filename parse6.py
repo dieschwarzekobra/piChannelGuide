@@ -2,13 +2,17 @@ from bs4 import BeautifulSoup
 import re, string, sys, time, urllib 
 
 ##Declare global variables
+
 showListingTime = 0
 i = 0
 programRunning = True
+file = ''
+
 channelList = []
 channelNum = []
 customList = []
 channel = []
+textForCache = []
 
 def connectToTvRage():
   page = urllib.urlopen("http://services.tvrage.com/feeds/fullschedule.php?country=US")
@@ -50,14 +54,24 @@ def compareChannels():
 
 #############################################################
 
+def writeToCache(text):
+  global file
+  testing = str(text)
+  file.write(testing)
+  print testing
+
+#############################################################
+
 def runProgram():
 
   #############FUNCTIONS#####################
 
   def clearCache():
+    global file
     file = open('tvRage2.html','w')
     file.write('')
     file.close()
+    file = open('tvRage2.html', 'a')
 
   ############################################
 
@@ -139,19 +153,22 @@ def runProgram():
     printShows(lowerBoundary, lowerBoundaryList)
     printShows(midBoundary, midBoundaryList)
     printShows(upperBoundary, upperBoundaryList)
-    print getTime(), lowerBoundary, midBoundary, upperBoundary
+
   ###################################################
 
   def printShows(Boundary, List):
-
+    global textForCache
     print Boundary
+    writeToCache(Boundary)
+
     if len(customList) <= 0:
       print "Sorry, there are no shows for this time period :("
+    #  writeToCache("Sorry, there are no shows for this time period :(")
     elif len(customList) >= 1:
       for item in List:
-        print item
         if item['channel'] in customList:
           print item
+          writeToCache(item)
 
   ###################################################
 
@@ -182,16 +199,6 @@ def runProgram():
       hour = "00"
     else:
       hour = hour[:2]
-
-#    if hour == "09":
-#      print hour
-#    if ("am" in hour):
-#      print hour
-#      hour = "00"
-#      print ""
-#    else:
-#      hour = hour[:2]
-#       print ""
     return hour
 
 
@@ -257,6 +264,7 @@ def runProgram():
     i += 1
   compareChannels()
   paginate()
+#  writeToCache(textForCache)
 
 ########################################################################
 

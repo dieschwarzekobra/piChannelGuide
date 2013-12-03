@@ -3,7 +3,14 @@
 <xsl:template match="/">
 
 <html>
+<head>
+<title>piChannelGuide</title>
+<link rel="stylesheet" type="text/css" href="style.css" />
+</head>
 <body>
+<div class="header">
+<h1>piChannelGuide</h1>
+</div>
 <div class="comingUp">
 <xsl:for-each select="guide/time">
 <h2><xsl:value-of select="header" /></h2>

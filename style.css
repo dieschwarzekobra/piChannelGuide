@@ -1,0 +1,16 @@
+.comingUp{
+  width: 40%;
+  padding: 2%;
+  float: left;
+  clear: right;
+  margin-right: 10%;
+}
+
+.channels{
+  width: 20%;
+  padding: 2%;
+  float: left;
+  clear:right;
+  height: 300px;
+  overflow: auto;
+}

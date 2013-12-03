@@ -68,10 +68,10 @@ def runProgram():
 
   def clearCache():
     global file
-    file = open('tvRage2.html','w')
-    file.write('')
+    file = open('tvRage2.xml','w')
+    file.write('<?xml version="1.0" encoding="ISO-8859-1" ?><?xml-stylesheet type="text/xsl" href="tvRage2.xsl"?><guide>')
     file.close()
-    file = open('tvRage2.html', 'a')
+    file = open('tvRage2.xml', 'a')
 
   ############################################
 
@@ -157,18 +157,18 @@ def runProgram():
   ###################################################
 
   def printShows(Boundary, List):
-    global textForCache
     print Boundary
+    Boundary = "<time><header>" + str(Boundary)[-4:-2] + ":" + str(Boundary)[-2:] + "</header>"
     writeToCache(Boundary)
-
     if len(customList) <= 0:
       print "Sorry, there are no shows for this time period :("
-    #  writeToCache("Sorry, there are no shows for this time period :(")
     elif len(customList) >= 1:
       for item in List:
         if item['channel'] in customList:
           print item
           writeToCache(item)
+    endTag = "</time>"
+    writeToCache(endTag)
 
   ###################################################
 
@@ -253,18 +253,22 @@ def runProgram():
   allTags = soup.find_all()
   allNetworks = soup.find_all('network')
   allUrls = soup.find_all('link')
+  allDays = soup.find_all('day')
 
   listNetworks()
   listUrls()
+
   for show in shows:
     defineChannelAttribute(show)
     defineUrlAttribute(show)
     assignShowtimes(show)
     convertTimeToUniversal(show)
     i += 1
+
   compareChannels()
   paginate()
-#  writeToCache(textForCache)
+  endTag = "</guide>"
+  writeToCache(endTag)
 
 ########################################################################
 
@@ -274,3 +278,4 @@ parseChannelsAndNumbers()
 
 #while programRunning:
 runProgram()
+file.close()

@@ -4,15 +4,24 @@
 
 <html>
 <body>
-Test
+<div class="comingUp">
 <xsl:for-each select="guide/time">
 <h2><xsl:value-of select="header" /></h2>
-<xsl:for-each select="show">
+
 <ul>
+<xsl:for-each select="show">
 <li><b><xsl:value-of select="network" /></b> - <xsl:value-of select="@name" />: <xsl:value-of select="title"/></li>
+</xsl:for-each>
 </ul>
+
 </xsl:for-each>
+
+<ul>
+<xsl:for-each select="guide/channel">
+<li><xsl:value-of select="." /></li>
 </xsl:for-each>
+</ul>
+</div>
 </body>
 </html>
 

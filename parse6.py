@@ -7,6 +7,7 @@ showListingTime = 0
 i = 0
 programRunning = True
 file = ''
+day = ''
 
 channelList = []
 channelNum = []
@@ -51,6 +52,17 @@ def compareChannels():
     if chann in channel:
       customList.append(chann)
   print customList
+
+#############################################################
+
+def printCustomList():
+  for chann in getImportantChannels():
+    dash = chann.find("_")
+    chann = "<channel>" + chann[:dash] + " " + chann[dash+1:] + "</channel>"
+    if "&" in chann:
+      ampersand = chann.find("&")
+      chann = chann[:ampersand] + chann[ampersand+1:]
+    writeToCache(chann)
 
 #############################################################
 
@@ -120,6 +132,7 @@ def runProgram():
 
   def assignShowtimes(show):
     show['time'] = show.parent['attr']
+    show['day'] = show.parent.parent['attr']
        
   #################################################
 
@@ -164,7 +177,7 @@ def runProgram():
       print "Sorry, there are no shows for this time period :("
     elif len(customList) >= 1:
       for item in List:
-        if item['channel'] in customList:
+        if (item['channel'] in customList) and (item['day'] == day):
           print item
           writeToCache(item)
     endTag = "</time>"
@@ -253,7 +266,9 @@ def runProgram():
   allTags = soup.find_all()
   allNetworks = soup.find_all('network')
   allUrls = soup.find_all('link')
-  allDays = soup.find_all('day')
+
+  global day
+  day = soup.find('day')['attr']
 
   listNetworks()
   listUrls()
@@ -267,6 +282,7 @@ def runProgram():
 
   compareChannels()
   paginate()
+  printCustomList()
   endTag = "</guide>"
   writeToCache(endTag)
 
@@ -279,3 +295,4 @@ parseChannelsAndNumbers()
 #while programRunning:
 runProgram()
 file.close()
+print day

@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-import re, string, sys, time, urllib 
+import re, string, sys, time, urllib, webbrowser 
 
 ##Declare global variables
 
@@ -51,7 +51,6 @@ def compareChannels():
   for chann in channelList:
     if chann in channel:
       customList.append(chann)
-  print customList
 
 #############################################################
 
@@ -70,7 +69,6 @@ def writeToCache(text):
   global file
   testing = str(text)
   file.write(testing)
-  print testing
 
 #############################################################
 
@@ -268,7 +266,10 @@ def runProgram():
   allUrls = soup.find_all('link')
 
   global day
-  day = soup.find('day')['attr']
+#  day = soup.find('day')['attr']
+  day = time.strftime("%Y-%m-%d", time.localtime())
+  if day[-2:-1] == "0":
+    day = day[:-2] + day[-1:]
 
   listNetworks()
   listUrls()
@@ -281,18 +282,20 @@ def runProgram():
     i += 1
 
   compareChannels()
-  paginate()
   printCustomList()
+  paginate()
   endTag = "</guide>"
   writeToCache(endTag)
+#  paginate()
+  file.close()
+  webbrowser.get('open C:\\Program ~F\\Mozilla Firefox\\firefox.exe %s')
+  webbrowser.open('tvRage2.xml')
+  #file.close()
+  #time.sleep(3600)
 
 ########################################################################
 
 
-#connectToTvRage()
+connectToTvRage()
 parseChannelsAndNumbers()
-
-#while programRunning:
 runProgram()
-file.close()
-print day

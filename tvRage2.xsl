@@ -15,7 +15,9 @@
 </ul>
 
 </xsl:for-each>
+</div>
 
+<div class="channels">
 <ul>
 <xsl:for-each select="guide/channel">
 <li><xsl:value-of select="." /></li>

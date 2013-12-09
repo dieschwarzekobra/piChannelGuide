@@ -48,7 +48,7 @@ def getImportantChannels():
 
 def parseChannelsAndNumbers():
   usrList = getImportantChannels()
-  if usrList > 1:
+  if len(usrList) > 1:
     for chann in usrList:
       splitList = chann.split("_")
       channelList.append(splitList[1])
@@ -65,7 +65,7 @@ def compareChannels():
 
 def printCustomList():
   usrList = getImportantChannels()
-  if usrList > 1:
+  if len(usrList) > 1:
     for chann in usrList:
       dash = chann.find("_")
       chann = "<channel>" + chann[:dash] + " " + chann[dash+1:] + "</channel>"

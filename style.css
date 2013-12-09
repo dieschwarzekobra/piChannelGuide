@@ -2,6 +2,9 @@ body{
   font-size: 10px;
   font-family: Georgia;
   text-transform: lowercase;
+  background-image: url('Usagi_Flowers_Crosses_Feathers_Artbook_5.jpg');
+  background-repeat: no-repeat;
+  background-color: black;
 }
 
 h1, h2, h3{
@@ -20,6 +23,8 @@ h1, h2, h3{
   float: left;
   clear: right;
   margin-right: 10%;
+  margin-top: 15px;
+  background: rgba(255, 255, 255, 0.7);.
 }
 
 .channels{
@@ -29,13 +34,14 @@ h1, h2, h3{
   clear:right;
   height: 300px;
   overflow: auto;
+  background: rgba(255, 255, 255, 0.7);.
 }
 
 .header{
-  width: 170px;
+  width: 160px;
   margin-left: 2%;
   border: 5px solid black;
   background-color: transparent;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
 }

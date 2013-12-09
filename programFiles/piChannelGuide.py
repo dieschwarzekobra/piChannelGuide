@@ -214,18 +214,76 @@ def runProgram():
     writeToCache(endTag)
 
 
+  ####################LOCAL VARIABLES#####################
+
+  ##Basic variables and global variables
+  ###Basic variables
+  html_doc = open("tvRage.xml", "r")
+  givenTime = getTime()
+  networks = []
+  urls = []
+
+  ###Global variables
+  global i
+  global showListingTime
+
+  ###Derivative variables
+  showListingTime = int(givenTime) - 100
+  text = html_doc.read()
+  
+  ##Soup Variables
+  soup = BeautifulSoup(text)
+  shows = soup.find_all('show')
+  allNetworks = soup.find_all('network')
+
+  global day
+  day = time.strftime("%Y-%m-%d", time.localtime())
+  if day[-2:-1] == "0":
+    day = day[:-2] + day[-1:]
+
 
   #Clear the cache
-  #Connect to TVRage Full Schedule. Download the schedule for parsing.
-  #Define channels that are important to the user.
-  #Print this list of channels to the display and save it to the cache.
-  #Parse the data provided by the user to separate the channels from the channel numbers.
-  #Create a list of the channels present in the TV schedule.
-  #Compare the user-provided list of channels to the list of channels present in the TV schedule. Compose a list of the channels each list has in common.
-  #Get local time.
-  #Convert all times to Universal Time, rounded to the nearest hour.
+  clearCache()
+
+
   #Parse TVRage schedule and restructure 'show' element to include a channel and time attribute.
+  #Convert all times to Universal Time, rounded to the nearest hour.
+  for show in shows:
+    defineChannelAttribute(show)
+    defineUrlAttribute(show)
+    assignShowtimes(show)
+    convertTimeToUniversal(show)
+    i += 1
+
+
+  #Compare the user-provided list of channels to the list of channels present in the TV schedule. Compose a list of the channels each list has in common.
+  compareChannels()
+
+
   #Select upcoming shows that are showing within an hour and a half of the current local time.
   #Print those listings and save them to the cache.
+  #Print the list of channels to the display and save it to the cache.
+  printCustomList()
+  sortShows(100)
+  endTag = "</guide>"
+  writeToCache(endTag)
+
   #Display the cached data in the webbrowser
+  webbrowser.open('xml/cache.xml')
+
+########################################RUN PROGRAM####################################
+
+#Connect to TVRage Full Schedule. Download the schedule for parsing.
+connectToTvRage()
+
+#Define channels that are important to the user.
+#Parse the channel data provided by the user to separate the channels from the channel numbers.
+parseChannelsAndNumbers()
+
+#Create a list of the channels present in the TV schedule.
+listNetworks()
+
+while programRunning:
+  runProgram()
   #Repeat every thirty minutes.
+  time.sleep(1800)

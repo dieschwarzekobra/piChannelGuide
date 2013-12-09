@@ -1,0 +1,47 @@
+body{
+  font-size: 10px;
+  font-family: Georgia;
+  text-transform: lowercase;
+  background-image: url('Usagi_Flowers_Crosses_Feathers_Artbook_5.jpg');
+  background-repeat: no-repeat;
+  background-color: black;
+}
+
+h1, h2, h3{
+  font-family: 'Chewy', cursive;
+  text-transform: none;
+  display: block;
+  padding: 15px;
+  background-color: black;
+  color: white;
+  width: 130px;
+}
+
+.comingUp{
+  width: 40%;
+  padding: 2%;
+  float: left;
+  clear: right;
+  margin-right: 10%;
+  margin-top: 15px;
+  background: rgba(255, 255, 255, 0.7);.
+}
+
+.channels{
+  width: 20%;
+  padding: 2%;
+  float: left;
+  clear:right;
+  height: 300px;
+  overflow: auto;
+  background: rgba(255, 255, 255, 0.7);.
+}
+
+.header{
+  width: 160px;
+  margin-left: 2%;
+  border: 5px solid black;
+  background-color: transparent;
+  padding-left: 10px;
+  padding-right: 10px;
+}

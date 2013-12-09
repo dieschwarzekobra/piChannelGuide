@@ -1,6 +1,6 @@
 #Import libraries
 from bs4 import BeautifulSoup
-import re, string, sys, time, urllib, webbrowser
+import os, re, string, sys, time, urllib, webbrowser
 
 #############################################################
 
@@ -78,8 +78,8 @@ def printCustomList():
 
 def writeToCache(text):
   global file
-  testing = str(text)
-  file.write(testing)
+  strText = str(text)
+  file.write(strText)
 
 #############################################################
 
@@ -267,9 +267,11 @@ def runProgram():
   sortShows(100)
   endTag = "</guide>"
   writeToCache(endTag)
+  file.close()
 
   #Display the cached data in the webbrowser
-  webbrowser.open('xml/cache.xml')
+  cache = os.path.realpath('xml/cache.xml')
+  webbrowser.open(cache)
 
 ########################################RUN PROGRAM####################################
 

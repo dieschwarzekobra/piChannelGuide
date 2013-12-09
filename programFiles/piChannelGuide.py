@@ -1,6 +1,19 @@
 #Import libraries
+from bs4 import BeautifulSoup
+import re, string, sys, time, urllib, webbrowser
+
 #Declare global variables
 #Define global functions
+def connectToTvRage():
+  page = urllib.urlopen("http://services.tvrage.com/feeds/fullschedule.php?country=US")
+  page = page.read()
+
+  file = open("xml/fullSchedule.xml", "w")
+  file.write(page)
+  file.close()
+  print "Connection complete."
+
+
 #Define program-level functions
 #Clear the cache
 #Connect to TVRage Full Schedule. Download the schedule for parsing.

@@ -5,6 +5,7 @@
 <html>
 <head>
 <title>piChannelGuide</title>
+<link href='http://fonts.googleapis.com/css?family=Chewy' rel='stylesheet' type='text/css' />
 <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>

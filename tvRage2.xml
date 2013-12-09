@@ -1,7 +1,79 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?><?xml-stylesheet type="text/xsl" href="tvRage2.xsl"?><guide><channel>2 fox</channel><channel>3 abc</channel><channel>4 pbs</channel><channel>5 cbs</channel><channel>5.1 wral</channel><channel>5.2 wral</channel><channel>6 nbc</channel><channel>7 cw</channel><channel>8 mnt</channel><channel>9 fit tv</channel><channel>10 fox sports 2</channel><channel>11 al jazeera america</channel><channel>11.1 wtvd hd</channel><channel>11.2 wtvd d2</channel><channel>11.3 wtvd d3</channel><channel>12 mtv</channel><channel>13 mtv2</channel><channel>14 vh1</channel><channel>15 vh1</channel><channel>16 bet</channel><channel>17 cmt</channel><channel>17.1 nbc17 hd</channel><channel>17.2 nbc17 sd</channel><channel>17.3 nbc17 wx</channel><channel>18 cnn headline news</channel><channel>19 cnn</channel><channel>20 fox news</channel><channel>21 cspan</channel><channel>22 cspan2</channel><channel>23 cnbc</channel><channel>24 msnbc</channel><channel>25 the weather channel</channel><channel>26 tv land</channel><channel>27 abc family</channel><channel>27.1 abc family hd</channel><channel>28 cartoon network</channel><channel>29 nickelodeon</channel><channel>29.1 nickelodeon hd</channel><channel>30 disney</channel><channel>30.1 disney hd</channel><channel>31 toon disney</channel><channel>32 game show network</channel><channel>33 unc_stv</channel><channel>34 unc_net</channel><channel>35 unc_special</channel><channel>35.1 stv hd</channel><channel>36 espn</channel><channel>36.1 espn hd</channel><channel>37 espn 2</channel><channel>37.1 espn 2 hd</channel><channel>38 espn news</channel><channel>38.1 espn news hd</channel><channel>39 espn u</channel><channel>39.1 espn u hd</channel><channel>40 espn classic hd</channel><channel>40.1 nbc sports hd</channel><channel>41 fox sports south</channel><channel>41.1 fox sports south hd</channel><channel>42 college sports tv</channel><channel>42.2 college sports tv hd</channel><channel>43 nfl network</channel><channel>44 golf channel</channel><channel>44.1 golf channel hd</channel><channel>45 fox sports 1</channel><channel>46 nbc sports network</channel><channel>47 bravo</channel><channel>48 oxygen</channel><channel>49 women’s entertainment</channel><channel>50 syfy</channel><channel>50.1 wraz hd</channel><channel>50.2 wraz dt</channel><channel>50.3 wraz wx</channel><channel>51.1 discovery hd</channel><channel>52 own</channel><channel>53 tlc</channel><channel>53.1 tlc hd</channel><channel>54 nasa</channel><channel>55 national geographic</channel><channel>56 military channel</channel><channel>57 history</channel><channel>57.1 history hd</channel><channel>58 science channel</channel><channel>59 animal planet</channel><channel>59.1 animal planet hd</channel><channel>60 tru_tv</channel><channel>60.1 tru tv hd</channel><channel>61 mtvu</channel><channel>62 usa</channel><channel>62.1 usa hd</channel><channel>63 tnt</channel><channel>63.1 tnt hd</channel><channel>64 tbs</channel><channel>64.1 tbs hd</channel><channel>65 spike</channel><channel>65.1 spike hd</channel><channel>66 f/x</channel><channel>66.1 f/x hd</channel><channel>67 ae</channel><channel>68 lifetime</channel><channel>68.1 lifetime hd</channel><channel>69 amc</channel><channel>69.1 amc hd</channel><channel>71.1 carolina athletics hd</channel><channel>73 comedy central</channel><channel>73.1 comedy central hd</channel><channel>74 soap network</channel><channel>75 e!</channel><channel>76 univision</channel><channel>77 once mexico</channel><channel>78 bloomberg</channel><channel>79 tv one</channel><channel>80 the 101</channel><channel>81 reelz</channel><channel>82 cloo</channel><channel>83 logo</channel><channel>95 hgtv</channel><channel>96 food network</channel><channel>96.1 food network hd</channel><channel>97 travel channel</channel><channel>98 hitn</channel><channel>99 channel guide</channel><channel>100 ifc</channel><time><header>16:30</header></time><time><header>17:00</header><show channel="al jazeera america" day="2013-12-3" link="http://www.tvrage.com/shows/id-37215/episodes/1065437748" name="Inside Story" time="1700">
-<sid>37215</sid>
-<network>Al Jazeera America</network>
-<title>Season 1, Episode 14</title>
-<ep>01x14</ep>
-<link>http://www.tvrage.com/shows/id-37215/episodes/1065437748</link>
-</show></time><time><header>17:30</header></time></guide>
+<?xml version="1.0" encoding="ISO-8859-1" ?><?xml-stylesheet type="text/xsl" href="tvRage2.xsl"?><guide><channel>2 fox</channel><channel>3 abc</channel><channel>4 pbs</channel><channel>5 cbs</channel><channel>5.1 wral</channel><channel>5.2 wral</channel><channel>6 nbc</channel><channel>7 cw</channel><channel>8 mnt</channel><channel>9 fit tv</channel><channel>10 fox sports 2</channel><channel>11 al jazeera america</channel><channel>11.1 wtvd hd</channel><channel>11.2 wtvd d2</channel><channel>11.3 wtvd d3</channel><channel>12 mtv</channel><channel>13 mtv2</channel><channel>14 vh1</channel><channel>15 vh1</channel><channel>16 bet</channel><channel>17 cmt</channel><channel>17.1 nbc17 hd</channel><channel>17.2 nbc17 sd</channel><channel>17.3 nbc17 wx</channel><channel>18 cnn headline news</channel><channel>19 cnn</channel><channel>20 fox news</channel><channel>21 cspan</channel><channel>22 cspan2</channel><channel>23 cnbc</channel><channel>24 msnbc</channel><channel>25 the weather channel</channel><channel>26 tv land</channel><channel>27 abc family</channel><channel>27.1 abc family hd</channel><channel>28 cartoon network</channel><channel>29 nickelodeon</channel><channel>29.1 nickelodeon hd</channel><channel>30 disney</channel><channel>30.1 disney hd</channel><channel>31 toon disney</channel><channel>32 game show network</channel><channel>33 unc_stv</channel><channel>34 unc_net</channel><channel>35 unc_special</channel><channel>35.1 stv hd</channel><channel>36 espn</channel><channel>36.1 espn hd</channel><channel>37 espn 2</channel><channel>37.1 espn 2 hd</channel><channel>38 espn news</channel><channel>38.1 espn news hd</channel><channel>39 espn u</channel><channel>39.1 espn u hd</channel><channel>40 espn classic hd</channel><channel>40.1 nbc sports hd</channel><channel>41 fox sports south</channel><channel>41.1 fox sports south hd</channel><channel>42 college sports tv</channel><channel>42.2 college sports tv hd</channel><channel>43 nfl network</channel><channel>44 golf channel</channel><channel>44.1 golf channel hd</channel><channel>45 fox sports 1</channel><channel>46 nbc sports network</channel><channel>47 bravo</channel><channel>48 oxygen</channel><channel>49 women’s entertainment</channel><channel>50 syfy</channel><channel>50.1 wraz hd</channel><channel>50.2 wraz dt</channel><channel>50.3 wraz wx</channel><channel>51.1 discovery hd</channel><channel>52 own</channel><channel>53 tlc</channel><channel>53.1 tlc hd</channel><channel>54 nasa</channel><channel>55 national geographic</channel><channel>56 military channel</channel><channel>57 history</channel><channel>57.1 history hd</channel><channel>58 science channel</channel><channel>59 animal planet</channel><channel>59.1 animal planet hd</channel><channel>60 tru_tv</channel><channel>60.1 tru tv hd</channel><channel>61 mtvu</channel><channel>62 usa</channel><channel>62.1 usa hd</channel><channel>63 tnt</channel><channel>63.1 tnt hd</channel><channel>64 tbs</channel><channel>64.1 tbs hd</channel><channel>65 spike</channel><channel>65.1 spike hd</channel><channel>66 f/x</channel><channel>66.1 f/x hd</channel><channel>67 ae</channel><channel>68 lifetime</channel><channel>68.1 lifetime hd</channel><channel>69 amc</channel><channel>69.1 amc hd</channel><channel>71.1 carolina athletics hd</channel><channel>73 comedy central</channel><channel>73.1 comedy central hd</channel><channel>74 soap network</channel><channel>75 e!</channel><channel>76 univision</channel><channel>77 once mexico</channel><channel>78 bloomberg</channel><channel>79 tv one</channel><channel>80 the 101</channel><channel>81 reelz</channel><channel>82 cloo</channel><channel>83 logo</channel><channel>95 hgtv</channel><channel>96 food network</channel><channel>96.1 food network hd</channel><channel>97 travel channel</channel><channel>98 hitn</channel><channel>99 channel guide</channel><channel>100 ifc</channel><time><header>21:30</header><show channel="fox" day="2013-12-8" link="http://www.tvrage.com/American_Dad/episodes/1065344274" name="American Dad!" time="2130">
+<sid>2594</sid>
+<network>FOX</network>
+<title>Faking Bad</title>
+<ep>09x07</ep>
+<link>http://www.tvrage.com/American_Dad/episodes/1065344274</link>
+</show><show channel="hgtv" day="2013-12-8" link="http://www.tvrage.com/shows/id-33865/episodes/1065442657" name="Hawaii Life" time="2130">
+<sid>33865</sid>
+<network>HGTV</network>
+<title>A young couple leaves the hustle and bustle of Honolulu seeking the quieter parts of Oahu</title>
+<ep>02x04</ep>
+<link>http://www.tvrage.com/shows/id-33865/episodes/1065442657</link>
+</show><show channel="pbs" day="2013-12-8" link="http://www.tvrage.com/shows/id-38991/episodes/1065431294" name="Home for Christmas: The Chris Mann Christmas Special" time="2130">
+<sid>38991</sid>
+<network>PBS</network>
+<title>SPECIAL!</title>
+<ep>01x01</ep>
+<link>http://www.tvrage.com/shows/id-38991/episodes/1065431294</link>
+</show></time><time><header>22:00</header><show channel="cbs" day="2013-12-8" link="http://www.tvrage.com/The_Mentalist/episodes/1065419136" name="The Mentalist" time="2200">
+<sid>18967</sid>
+<network>CBS</network>
+<title>Green Thumb</title>
+<ep>06x10</ep>
+<link>http://www.tvrage.com/The_Mentalist/episodes/1065419136</link>
+</show><show channel="food network" day="2013-12-8" link="http://www.tvrage.com/Restaurant-Impossible/episodes/1065431682" name="Restaurant: Impossible" time="2200">
+<sid>27401</sid>
+<network>Food Network</network>
+<title>Holiday: Impossible 2</title>
+<ep>06x21</ep>
+<link>http://www.tvrage.com/Restaurant-Impossible/episodes/1065431682</link>
+</show><show channel="animal planet" day="2013-12-8" link="http://www.tvrage.com/Finding_Bigfoot/episodes/1065426865" name="Finding Bigfoot" time="2200">
+<sid>28516</sid>
+<network>Animal Planet</network>
+<title>Sketching Sasquatch</title>
+<ep>05x05</ep>
+<link>http://www.tvrage.com/Finding_Bigfoot/episodes/1065426865</link>
+</show><show channel="own" day="2013-12-8" link="http://www.tvrage.com/shows/id-32922/episodes/1065442663" name="Oprah: Where Are They Now?" time="2200">
+<sid>32922</sid>
+<network>OWN</network>
+<title>Snooki, 80s Heartthrob Willie Aames and Lottery Winners</title>
+<ep>02x18</ep>
+<link>http://www.tvrage.com/shows/id-32922/episodes/1065442663</link>
+</show><show channel="e!" day="2013-12-8" link="http://www.tvrage.com/shows/id-35554/episodes/1065433859" name="Total Divas" time="2200">
+<sid>35554</sid>
+<network>E!</network>
+<title>Saying Goodbye</title>
+<ep>01x13</ep>
+<link>http://www.tvrage.com/shows/id-35554/episodes/1065433859</link>
+</show><show channel="travel channel" day="2013-12-8" link="http://www.tvrage.com/shows/id-38720/episodes/1065426703" name="America Declassified" time="2200">
+<sid>38720</sid>
+<network>Travel Channel</network>
+<title>Million Dollar Missile Silos/Escape from Alcatraz</title>
+<ep>01x06</ep>
+<link>http://www.tvrage.com/shows/id-38720/episodes/1065426703</link>
+</show><show channel="tlc" day="2013-12-8" link="http://www.tvrage.com/shows/id-39076/episodes/1065432748" name="Breaking the Faith" time="2200">
+<sid>39076</sid>
+<network>TLC</network>
+<title>Into the Unknown</title>
+<ep>01x03</ep>
+<link>http://www.tvrage.com/shows/id-39076/episodes/1065432748</link>
+</show><show channel="msnbc" day="2013-12-8" link="http://www.tvrage.com/shows/id-39157/episodes/1065438184" name="Slave Hunter: Freeing Victims of Human Trafficking" time="2200">
+<sid>39157</sid>
+<network>MSNBC</network>
+<title>The Race Is On</title>
+<ep>01x02</ep>
+<link>http://www.tvrage.com/shows/id-39157/episodes/1065438184</link>
+</show><show channel="military channel" day="2013-12-8" link="http://www.tvrage.com/shows/id-39330/episodes/1065442004" name="The Bible's Greatest Secrets" time="2200">
+<sid>39330</sid>
+<network>Military Channel</network>
+<title>The Disciples</title>
+<ep>01x02</ep>
+<link>http://www.tvrage.com/shows/id-39330/episodes/1065442004</link>
+</show><show channel="abc" day="2013-12-8" link="http://www.tvrage.com/shows/id-34645/episodes/1065442670" name="Betrayal" time="2200">
+<sid>34645</sid>
+<network>ABC</network>
+<title>It's just you and me nowâ€¦</title>
+<ep>01x09</ep>
+<link>http://www.tvrage.com/shows/id-34645/episodes/1065442670</link>
+</show></time><time><header>22:30</header></time></guide>

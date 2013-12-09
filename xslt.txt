@@ -3,6 +3,11 @@
 <xsl:template match="/">
 
 <html>
+<head>
+<title>piChannelGuide</title>
+<link href='http://fonts.googleapis.com/css?family=Chewy' rel='stylesheet' type='text/css'>
+<link href='style.css' rel='stylesheet' type='text/css'>
+</head>
 <body>
 <h2></h2>
 </body>

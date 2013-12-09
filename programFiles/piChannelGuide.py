@@ -97,19 +97,10 @@ def runProgram():
     file.close()
     file = open('xml/cache.xml', 'a')
 
-  ############################################
-
-  def listNetworks():
-
-    #Grab network
-    for chann in allNetworks:
-      networks.append(chann.contents[0])
-    print "Done grabbing networks"
-
   #################PARSE#####################
 
-  def listNetworks():
 
+  def listNetworks():
     #Grab network
     for chann in allNetworks:
       networks.append(chann.contents[0])
@@ -227,7 +218,7 @@ def runProgram():
 
   ##Basic variables and global variables
   ###Basic variables
-  html_doc = open("tvRage.xml", "r")
+  html_doc = open("xml/fullSchedule.xml", "r")
   givenTime = getTime()
   networks = []
   urls = []
@@ -251,15 +242,15 @@ def runProgram():
     day = day[:-2] + day[-1:]
 
 
-  #Clear the cache
+  #Clear the cache & generate a list of networks
   clearCache()
+  listNetworks()
 
 
   #Parse TVRage schedule and restructure 'show' element to include a channel and time attribute.
   #Convert all times to Universal Time, rounded to the nearest hour.
   for show in shows:
     defineChannelAttribute(show)
-    defineUrlAttribute(show)
     assignShowtimes(show)
     convertTimeToUniversal(show)
     i += 1
@@ -288,9 +279,6 @@ connectToTvRage()
 #Define channels that are important to the user.
 #Parse the channel data provided by the user to separate the channels from the channel numbers.
 parseChannelsAndNumbers()
-
-#Create a list of the channels present in the TV schedule.
-listNetworks()
 
 while programRunning:
   runProgram()

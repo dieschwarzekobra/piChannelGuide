@@ -97,6 +97,15 @@ def runProgram():
     file.close()
     file = open('xml/cache.xml', 'a')
 
+  ############################################
+
+  def listNetworks():
+
+    #Grab network
+    for chann in allNetworks:
+      networks.append(chann.contents[0])
+    print "Done grabbing networks"
+
   #################PARSE#####################
 
   def listNetworks():

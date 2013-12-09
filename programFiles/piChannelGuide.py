@@ -48,10 +48,11 @@ def getImportantChannels():
 
 def parseChannelsAndNumbers():
   usrList = getImportantChannels()
-  for chann in usrList:
-    splitList = chann.split("_")
-    channelList.append(splitList[1])
-    channelNum.append(splitList[0])
+  if usrList > 1:
+    for chann in usrList:
+      splitList = chann.split("_")
+      channelList.append(splitList[1])
+      channelNum.append(splitList[0])
 
 #############################################################
 
@@ -63,13 +64,15 @@ def compareChannels():
 #############################################################
 
 def printCustomList():
-  for chann in getImportantChannels():
-    dash = chann.find("_")
-    chann = "<channel>" + chann[:dash] + " " + chann[dash+1:] + "</channel>"
-    if "&" in chann:
-      ampersand = chann.find("&")
-      chann = chann[:ampersand] + chann[ampersand+1:]
-    writeToCache(chann)
+  usrList = getImportantChannels()
+  if usrList > 1:
+    for chann in usrList:
+      dash = chann.find("_")
+      chann = "<channel>" + chann[:dash] + " " + chann[dash+1:] + "</channel>"
+      if "&" in chann:
+        ampersand = chann.find("&")
+        chann = chann[:ampersand] + chann[ampersand+1:]
+      writeToCache(chann)
 
 #############################################################
 
@@ -94,7 +97,7 @@ def runProgram():
     file.close()
     file = open('xml/cache.xml', 'a')
 
-  ############################################
+  #################PARSE#####################
 
   def listNetworks():
 
@@ -110,11 +113,107 @@ def runProgram():
     show['channel'] = networks[i].lower()
     channel.append(networks[i].lower())
 
-  ################################################
+  ############################################
 
   def assignShowtimes(show):
     show['time'] = show.parent['attr']
     show['day'] = show.parent.parent['attr']
+
+
+  ###################DISPLAY######################
+
+  def getTime():
+
+    #Get local time
+    givenTime = time.strftime("%H%M", time.localtime())
+    minutes = roundToNearestHalfHour(givenTime[2:])
+    givenTime = str(givenTime[:2]) + str(minutes)
+
+    return givenTime
+
+  #############################################
+
+  def calculateHours(hour):
+    if ("pm" in hour) and ("12" not in hour):
+      hour = int(hour[:2]) + 12
+    elif ("am" in hour) and ("12:0" in hour):
+      hour = "00"
+    else:
+      hour = hour[:2]
+    return hour
+
+  #############################################
+
+  def roundToNearestHalfHour(minutes):
+    if int(minutes) >= 30:
+      minutes = "30"
+    else:
+      minutes = "00"
+    return minutes
+
+  #############################################
+
+  def convertTimeToUniversal(show):
+    hour = calculateHours(show['time'])
+    minutes = roundToNearestHalfHour(show['time'][-5:-2])
+
+    #Replace time with UTC time
+    show['time'] = str(hour) + str(minutes)
+
+
+  #############################################
+
+  def sortShows(interval):
+
+    global showListingTime
+    showListingTime = showListingTime + interval
+
+    #Set boundaries for span of time to print entries for
+    lowerBoundary = showListingTime
+    upperBoundary = lowerBoundary + 100
+    if str(lowerBoundary)[-2:] == "30":
+      midBoundary = lowerBoundary + 70
+    else:
+       midBoundary = lowerBoundary + 30
+
+    #Initialize lists for each boundary
+    upperBoundaryList = []
+    midBoundaryList = []
+    lowerBoundaryList = []
+
+    #If show is at a given time, print the show
+    for show in shows:
+      if int(show['time']) == int(lowerBoundary):
+        lowerBoundaryList.append(show)
+      elif int(show['time']) == midBoundary:
+        midBoundaryList.append(show)
+      elif int(show['time']) == upperBoundary:
+        upperBoundaryList.append(show)
+
+    printShows(lowerBoundary, lowerBoundaryList)
+    printShows(midBoundary, midBoundaryList)
+    printShows(upperBoundary, upperBoundaryList)
+
+  ###################################################
+
+  def printShows(Boundary, List):
+    print Boundary
+    Boundary = "<time><header>" + str(Boundary)[-4:-2] + ":" + str(Boundary)[-2:] + "</header>"
+    writeToCache(Boundary)
+    if len(customList) <= 0:
+      for item in List:
+        if item['day'] == day:
+          print item
+          writeToCache(item)
+    elif len(customList) >= 1:
+      for item in List:
+        if (item['channel'] in customList) and (item['day'] == day):
+          print item
+          writeToCache(item)
+    endTag = "</time>"
+    writeToCache(endTag)
+
+
 
   #Clear the cache
   #Connect to TVRage Full Schedule. Download the schedule for parsing.

@@ -9,6 +9,8 @@ _Class project for silshack in which a raspberry pi will be used to customize th
 
 The Raspberry Pi Channel Guide aims to be an easily navigable dynamic schedule generator that runs on the pi. Schedule navigation is made easier with a mechanism that allows users to browse through channel listings to find shows on their own time, rather than having to wait for a non-interactive channel guide to slowly scroll through 100+ channels. Overall, this project will probably extend beyond this course. I do have goals that I would like to finish by the end of the course, but all of the things that I want for the project will require more time than I have within the limits of this course.
 
+While there are numerous channel guide programs and options out there, this channel guide aims to be easier to operate than those I have come in contact with. There is no installation necessary. Customization is relatively straightforward and less complicated than some of the other channel guide options out there. The interface is customizable HTML, and the program's design is modular enough for the user to add their own API if they are comfortable and determined enough with programming to do so.
+
 ## Milestones
 
 * Program connects to TVRage Schedule API. At this point, API selection is not intended to be configurable by the user, but this could be a future addition to the project. This connection can be verified with the text from the API being printed onto the console.

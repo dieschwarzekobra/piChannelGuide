@@ -4,9 +4,10 @@ Before you get started, make sure you have:
 
 * [Git](http://git-scm.com/downloads)
 * [Python](http://www.python.org/getit/)
-* [Firefox](http://www.mozilla.org/en-US/firefox/)
+* A web browser
 * A basic text editor
 * A command-line interface
+* An internet connection
 
 If you're not familiar with using the command-line, you may want to take a look at tutorials for using the command-line (also known as terminal or prompt) for your operating system.
 
@@ -21,7 +22,7 @@ git clone http://github.com/dieschwarzekobra/piChannelGuide.git
 
 ## Step Two: Edit channels.txt
 
-To customize your list of channels, you must open up channels.txt in your text editor of choice and replace the default channels with your channels of choice. Be sure to maintain the format presented as the default: channelNumber_channelName  channelNumber_channelName  etc. There are two spaces between each channel. *i.e.: 2_fox  3_abc  4_pbs  5_cbs*. **It is also important for the channel names to be lowercase.**
+To customize your list of channels, you must open up channels.txt in your text editor of choice and replace the default channels with your channels of choice. Be sure to maintain the following format: channelNumber_channelName  channelNumber_channelName  etc. There are two spaces between each channel. *i.e.: 2_fox  3_abc  4_pbs  5_cbs*. **It is also important for the channel names to be lowercase.** If you don't want to go through and make them lowercase on your own, you can use [something like this](http://www.textcaseconverter.com/) to do it pretty quickly and just copy and paste it into the channels.txt file. The default channels.txt file is blank, which allows the guide to show all listings. The program will still run if you don't have a list, but it will not run if you have an incorrectly formatted list. Please keep this in mind.
 
 ## Step Three: Run the program.
 

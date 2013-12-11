@@ -39,3 +39,8 @@ A Raspberry Pi will be used to connect the guide to the television, and a remote
 ## Re-use
 
 Anyone who does not have an easily navigable TV guide should be able to customize and use this project. Also, anyone who wants to use Python to parse data from an API could also find this project useful, as it can serve either as an example or a platform upon which they can build their own project. Overall, I hope for this project to be useful as more than just its main intended functionality. I want it to be a learning tool and maybe even a foundation for other work, which is a major characteristic of Open Source work as a concept. Therefore, a Github repository will definitely be used and hopefully well-documented. An example site is another goal, just in case someone who is less familiar with github wants to learn more about the project, or to use it for their own television watching needs.
+
+## Sample Output
+
+Here's an example of what the program produced with my own custom channels.txt.
+![show listings over the range of an hour and a half, and a list of the channels and their corresponding numbers.](sampleOutput.png)
